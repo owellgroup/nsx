@@ -35,7 +35,7 @@ const HeroSlider = () => {
 
   useEffect(() => {
     if (paused) return;
-    const timer = setInterval(next, 3500);
+    const timer = setInterval(next, 2000);
     return () => clearInterval(timer);
   }, [paused, next]);
 
@@ -51,7 +51,7 @@ const HeroSlider = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="absolute inset-0"
         >
           <div
@@ -64,7 +64,7 @@ const HeroSlider = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
               className="max-w-2xl"
             >
               <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground leading-tight mb-4">
