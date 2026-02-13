@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,9 +23,9 @@ const HowToTradePage = () => (
             <p className="text-muted-foreground mb-4">
               They have a fiduciary responsibility to their clients. You can give the broker permission to deal on your account (managed portfolio), or you can make decisions yourself.
             </p>
-            <a href="/trade/brokers" className="inline-block bg-secondary text-secondary-foreground px-6 py-2.5 rounded font-semibold text-sm hover:brightness-110 transition-all">
+            <Link to="/trade/brokers" className="inline-block bg-secondary text-secondary-foreground px-6 py-2.5 rounded font-semibold text-sm hover:brightness-110 transition-all">
               View Brokers
-            </a>
+            </Link>
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6 mb-8">
