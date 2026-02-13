@@ -1,7 +1,7 @@
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { TrendingUp, TrendingDown, Download } from "lucide-react";
+import { TrendingUp, TrendingDown, Download, BarChart3, FileText } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const indexData = [
@@ -85,15 +85,52 @@ const MarketDataPage = () => (
           <p className="text-muted-foreground">Weekly market indices and trading reports — 05 to 09 February 2024</p>
         </div>
 
-        <Tabs defaultValue="trading" className="w-full">
-          <TabsList className="mb-8 bg-muted p-1 rounded-lg w-full sm:w-auto">
-            <TabsTrigger value="trading" className="font-display font-semibold data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground px-6">
-              Weekly Trading Report
-            </TabsTrigger>
-            <TabsTrigger value="index" className="font-display font-semibold data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground px-6">
-              Weekly Index Report
-            </TabsTrigger>
-          </TabsList>
+        {/* Category Selector Section */}
+        <div className="mb-8">
+          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border-2 border-primary/20 rounded-xl p-6 shadow-sm">
+            <div className="mb-4">
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Select Report Category</h2>
+              <p className="text-xs text-muted-foreground">Choose between trading reports and index reports</p>
+            </div>
+            <Tabs defaultValue="trading" className="w-full">
+              <TabsList className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-transparent p-0 h-auto w-full">
+                <TabsTrigger 
+                  value="trading" 
+                  className="group relative flex flex-col items-start sm:items-center justify-center gap-3 px-6 py-5 rounded-lg border-2 border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:shadow-md data-[state=active]:shadow-primary/20 h-auto min-h-[100px] sm:min-h-[120px]"
+                >
+                  <div className="flex items-center gap-3 w-full sm:justify-center">
+                    <div className="p-2.5 rounded-lg bg-primary/10 group-data-[state=active]:bg-primary/20 transition-colors">
+                      <FileText className="w-6 h-6 text-primary group-data-[state=active]:text-primary" />
+                    </div>
+                    <div className="flex-1 text-left sm:text-center">
+                      <div className="font-display font-bold text-base sm:text-lg text-foreground group-data-[state=active]:text-primary mb-1">
+                        Weekly Trading Report
+                      </div>
+                      <div className="text-xs text-muted-foreground group-data-[state=active]:text-primary/80">
+                        View trading statistics and performance
+                      </div>
+                    </div>
+                  </div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="index" 
+                  className="group relative flex flex-col items-start sm:items-center justify-center gap-3 px-6 py-5 rounded-lg border-2 border-border bg-card hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 data-[state=active]:border-secondary data-[state=active]:bg-secondary/10 data-[state=active]:shadow-md data-[state=active]:shadow-secondary/20 h-auto min-h-[100px] sm:min-h-[120px]"
+                >
+                  <div className="flex items-center gap-3 w-full sm:justify-center">
+                    <div className="p-2.5 rounded-lg bg-secondary/10 group-data-[state=active]:bg-secondary/20 transition-colors">
+                      <BarChart3 className="w-6 h-6 text-secondary group-data-[state=active]:text-secondary" />
+                    </div>
+                    <div className="flex-1 text-left sm:text-center">
+                      <div className="font-display font-bold text-base sm:text-lg text-foreground group-data-[state=active]:text-secondary mb-1">
+                        Weekly Index Report
+                      </div>
+                      <div className="text-xs text-muted-foreground group-data-[state=active]:text-secondary/80">
+                        View market indices and sector data
+                      </div>
+                    </div>
+                  </div>
+                </TabsTrigger>
+              </TabsList>
 
           {/* ====== WEEKLY TRADING REPORT ====== */}
           <TabsContent value="trading" className="space-y-8">
@@ -307,7 +344,9 @@ const MarketDataPage = () => (
               </div>
             </div>
           </TabsContent>
-        </Tabs>
+            </Tabs>
+          </div>
+        </div>
       </div>
     </main>
     <Footer />
